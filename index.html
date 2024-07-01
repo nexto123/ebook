@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Games Playes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #111;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .logo span {
+            color: #ff4d6d;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url('/images/drrokdes.webp') no-repeat center center/cover;
+            position: relative;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #ff4d6d;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #ff3357;
+        }
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 6rem 1rem 2rem;
+        }
+        .info-box {
+            flex-basis: 48%;
+            background-color: #111;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .info-box h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .info-box ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        .info-box li {
+            margin-bottom: 0.5rem;
+        }
+        .info-box img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        section {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><span>THE</span> GAMES</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Games</a></li>
+                <li><a href="#info">Mr</a></li>
+                <li><a href="#about">The</a></li>
+                <li><a href="#how-plays">How plays</a></li>
+                <li><a href="#fold">Fold</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>THE GAMES PLAYES</h1>
+                <p>GREY PLAY</p>
+                <a href="#info" class="cta-button">Discover More</a>
+            </div>
+        </section>
+        <section id="info" class="info-section">
+            <div class="info-box">
+                <h2>GAMES MAYBE PAYS</h2>
+                <ul>
+                    <li>La somme d'effort et occasion est in saltery poserity que.</li>
+                    <li>Les gamers on voy d'zasmi amins constel thinking pas autes q'ils in existed.</li>
+                </ul>
+                <a href="#" class="cta-button">Download Book</a>
+            </div>
+            <div class="info-box">
+                <img src="/images/red.webp" alt="Dr. Grey">
+            </div>
+        </section>
+        <!-- Placeholder sections for demonstration -->
+        <section id="about" class="info-section">
+            <div class="info-box">
+                <h2>About Section</h2>
+                <p>Content for the About section goes here.</p>
+            </div>
+        </section>
+        <section id="how-plays" class="info-section">
+            <div class="info-box">
+                <h2>How Plays Section</h2>
+                <p>Content for the How Plays section goes here.</p>
+            </div>
+        </section>
+        <section id="fold" class="info-section">
+            <div class="info-box">
+                <h2>Fold Section</h2>
+                <p>Content for the Fold section goes here.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        const headerOffset = 60;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
